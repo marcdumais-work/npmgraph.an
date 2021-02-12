@@ -2,7 +2,7 @@ image:
   file: .gitpod.Dockerfile
 
 ports:
-  - port: 31337 # npmgraph web breview
+  - port: 31337 # npmgraph web preview
     visibility: public
 tasks:
   - init: npm install && npm run build
