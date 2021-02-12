@@ -7,11 +7,11 @@ var registryUrl = require('../config.js').registryUrl;
 module.exports = buildGraph;
 
 function buildGraph(pkgName, version, http, changed) {
-  var graph = require('ngraph.graph')({uniqueLinkId: false});
+  var graph = require('ngraph.graph')(git{uniqueLinkId: false});
 
   var graphBuilder = createGraphBuilder(function (url) {
     return http.get(url);
-  }, registryUrl);
+  }, registryUrl, true);
 
   graphBuilder.notifyProgress(changed);
   var promise = graphBuilder.createNpmDependenciesGraph(pkgName, graph, version);
